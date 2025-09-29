@@ -1,0 +1,30 @@
+import type { Task } from "./Task";
+
+export const tasksCollection : Task[] = [
+ { id: '1', 
+    content: 'Installer VS Code, Bun et Git', 
+    createdAT: new Date(),
+    status: 'done', 
+    completedAt : new Date()},
+ { id: '2', 
+    content: 'Apprendre TypeScript', 
+    createdAT: new Date(),
+    status: 'doing', 
+    completedAt : new Date()},
+ { id: '3', 
+    content: 'Apprendre React', 
+    createdAT: new Date(),
+    status: 'doing', 
+    completedAt : new Date()},
+ { id: '4', 
+    content: 'Réaliser mon TD', 
+    createdAT: new Date(),
+    status: 'doing', 
+    completedAt : new Date()},
+ { id: '5', 
+    content: 'Penser à saisir prénom et mon nom dans le fichier README.md', 
+    createdAT: new Date(),
+    status: 'todo', 
+    completedAt : new Date()},
+  
+];
