@@ -36,7 +36,7 @@ function App() {
     return (
         <>
             <h1>Todo List</h1>
-            <p>Nombre de tâches: {tasks.length}</p>
+            <p>Nombre de tâches : {tasks.length}</p>
             <button type="button" onClick={handleClick}>
                     Nouvelle tâche
                 </button>
