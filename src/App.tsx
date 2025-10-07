@@ -1,5 +1,5 @@
 import './App.css';
-import React from 'react';
+import React, { type JSX } from 'react';
 import { tasksCollection } from './data';
 import type { Task } from "./Task";
 import {v4 as uuidv4} from "uuid";
@@ -21,7 +21,7 @@ function App() {
         status:"todo", 
         
       };
-      setTasks([newTask, ...tasks]);
+      setTasks([ ...tasks,newTask]);
     }
     const handleClick = () =>{
       setCount(count +1);
@@ -32,6 +32,32 @@ function App() {
         alert("Vous devez saisir un contenu valide !");
       }
   }
+    const handleChange = (id: string) => {
+      setTasks(
+        tasks.map((task) =>
+          task.id === id ? { ...task, status: "done" } : task
+        )
+      );
+    };
+
+    function renduStatus(status: string): JSX.Element { 
+      if (status === "done") {
+        return <span>✅</span>;
+      } else if (status === "doing") {
+        return <span>⌚</span>;
+      } else {
+        return <span>⏳</span>;
+      }
+    }
+
+    function valider(task : Task) : JSX.Element {
+      if (task.status== "done") {
+        return <div></div>
+      } else {
+        return <button type="button" onClick={() => handleChange(task.id)}>
+          Valider</button>
+      }
+    }
     
     return (
         <>
@@ -44,7 +70,7 @@ function App() {
               <ul>
                 {tasks.map((task) => (
                         <li key={task.id}>
-                            {task.content}
+                            {task.content} {renduStatus(task.status)}{valider(task)}
                         </li>
                 ))}
               </ul>
